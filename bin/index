@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+const lint = require('../dist/monolinter');
+
+console.log('====================================');
+console.log(lint.default());
+console.log('====================================');

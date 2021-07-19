@@ -1,0 +1,35 @@
+{
+  "name": "monolinter",
+  "version": "1.0.0",
+  "description": "Collection of utilities to lint files accross mono repos",
+  "main": "dist/index.js",
+  "bin": {
+    "monolinter": "./bin/monolinter"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "build": "tsc -p ./src",
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/andresesfm/monolinter"
+  },
+  "keywords": [
+    "monorepo",
+    "lint",
+    "package.json"
+  ],
+  "author": "Andres Aguilar",
+  "license": "ISC",
+  "dependencies": {
+    "@types/glob": "^7.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.31.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.3"
+  }
+}
