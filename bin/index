@@ -2,5 +2,7 @@
 const lint = require('../dist/monolinter');
 
 console.log('====================================');
-console.log(lint.default());
+lint.default(process.argv.slice(2)).then((exitcode)=>{   
+    process.exit(exitcode)
+});
 console.log('====================================');
