@@ -4,16 +4,18 @@
   "description": "Collection of utilities to lint files accross mono repos",
   "main": "dist/index.js",
   "bin": {
-    "monolinter": "./bin/monolinter"
+    "monolinter": "./bin/index"
   },
+  "files": ["dist/**/*","bin/*"],
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "build": "tsc -p ./src",
-    "test": "yarn test"
+    "build": "tsc",
+    "test": "yarn test",
+    "format":"prettier --write \"src/**/*.ts \""
   },
   "repository": {
     "type": "git",
-    "url": "github.com/andresesfm/monolinter"
+    "url": "git+https://github.com/andresesfm/monolinter.git"
   },
   "keywords": [
     "monorepo",

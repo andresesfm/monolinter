@@ -1,0 +1,11 @@
+*.ts
+!*.d.ts
+tsconfig.json
+.vscode/
+docs/
+.github/
+*.md
+.eslintrc.js
+.eslintignore
+.prettierrc.js
+.gitattributes

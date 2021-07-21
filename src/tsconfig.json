@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "../dist/",
-    "esModuleInterop": true
-  },
-  "exclude": ["node_modules", "**/*.spec.ts"]
-}
