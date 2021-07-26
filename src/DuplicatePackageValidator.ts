@@ -10,7 +10,7 @@ export class DuplicatePackageValidator implements Validator {
     console.log("Validating Duplicate Packages in same file");
   }
 
-  addDependency(dependency: string, version: string, filename: string) {
+  addDependency(dependency: string, version: string, filename: string): void {
     if (!(filename in this.depFileMap)) {
       this.depFileMap[filename] = {};
     }

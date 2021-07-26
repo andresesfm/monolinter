@@ -10,7 +10,7 @@ export class ConsistentPackageVersionValidator implements Validator {
     console.log("Validating  Packages");
   }
 
-  addDependency(dependency: string, version: string, filename: string) {
+  addDependency(dependency: string, version: string, filename: string): void {
     if (!(dependency in this.depFileMap)) {
       this.depFileMap[dependency] = {};
     }

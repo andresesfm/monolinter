@@ -21,7 +21,7 @@ export class RelatedPackagesValidator implements Validator {
     }, {});
   }
 
-  addDependency(dependency: string, version: string, filename: string) {
+  addDependency(dependency: string, version: string, filename: string): void {
     const groupKey = this.depsGroupsMap[dependency];
     if (dependency in this.depsGroupsMap) {
       if (!(groupKey in this.depFileGroupMap)) {

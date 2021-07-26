@@ -10,7 +10,7 @@ export class ExactPackageVersionValidator implements Validator {
     console.log("Validating  Packages");
   }
 
-  addDependency(dependency: string, version: string, filename: string) {
+  addDependency(dependency: string, version: string, filename: string): void {
     if (version.startsWith("^") || version.startsWith("^")) {
       this.depFileMap[dependency] = { dependency, version, filename };
     }
