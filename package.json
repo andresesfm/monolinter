@@ -1,17 +1,20 @@
 {
   "name": "monolinter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collection of utilities to lint files accross mono repos",
   "main": "dist/index.js",
   "bin": {
     "monolinter": "./bin/index"
   },
-  "files": ["dist/**/*","bin/*"],
+  "files": [
+    "dist/**/*",
+    "bin/*"
+  ],
   "scripts": {
     "lint": "eslint . --ext .ts",
     "build": "tsc",
     "test": "yarn test",
-    "format":"prettier --write \"src/**/*.ts \""
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -28,8 +31,10 @@
     "@types/glob": "^7.1.4",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
+    "cosmiconfig": "^7.0.0",
     "eslint": "^7.31.0",
     "globby": "^11.0.4",
+    "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   },
   "devDependencies": {

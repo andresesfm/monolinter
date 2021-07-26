@@ -1,8 +1,21 @@
 #!/usr/bin/env node
 const lint = require('../dist/monolinter');
+const {cosmiconfig} = require('cosmiconfig')
+const explorer = cosmiconfig('monolinter')
+console.log('monolinter ====================================');
+explorer.search().then((result)=>{
+    console.log("loading config from", result.filepath);
+    if(result.isEmpty){
+        throw new Error("Empty config file")
+    }
+    lint.default(result.config.include).then((exitcode)=>{   
+        process.exit(exitcode)
+    });
+}).catch((error)=>{
+    console.log("error loading config file, defaulting to cli params");
+    lint.default(process.argv.slice(2)).then((exitcode)=>{   
+        process.exit(exitcode)
+    });
+})
 
-console.log('====================================');
-lint.default(process.argv.slice(2)).then((exitcode)=>{   
-    process.exit(exitcode)
-});
 console.log('====================================');
