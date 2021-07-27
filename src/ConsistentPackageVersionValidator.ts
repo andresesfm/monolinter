@@ -4,7 +4,7 @@ import { Validator } from "./Validator";
  * Checks for the same package version to be used accross all package.json files
  */
 export class ConsistentPackageVersionValidator implements Validator {
-  private depFileMap = {};
+  private depFileMap: { [key: string]: { [key: string]: string[] } } = {};
 
   constructor() {
     console.log("Validating  Packages");

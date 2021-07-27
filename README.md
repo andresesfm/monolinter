@@ -12,6 +12,15 @@ The goal of this package is to have a set of utilities to lint monorepos.
 yarn add monolinter -d
 ```
 ## Usage
+Create a file called `.monolinterrc` in your root folder with the following configuration:
+```
+{
+ "include":["package.json","mypackagespath/**/package.json"]
+}
+```
+the included paths can be glob expressions.
+
+In order to run from command line, you can call it directly instead
 ```
 yarn monolinter package.json [list of globs to other package.json files]
 ```

@@ -5,20 +5,27 @@ import { Validator } from "./Validator";
  */
 export class RelatedPackagesValidator implements Validator {
   /** List of related dependencies that should share the same version number */
-  private depsGroups = [["babel-plugin-react-native-web", "react-native-web"]];
+  private depsGroups: string[][] = [
+    ["babel-plugin-react-native-web", "react-native-web"],
+  ];
 
-  private depsGroupsMap = {};
+  private depsGroupsMap: { [key: string]: string } = {};
 
-  private depFileGroupMap = {};
+  private depFileGroupMap: {
+    [key: string]: { [key: string]: { [key: string]: string[] } };
+  } = {};
 
   constructor() {
     console.log("Validating Related packages");
-    this.depsGroupsMap = this.depsGroups.reduce((map, arr, index) => {
-      arr.forEach((element) => {
-        map[element] = index; // eslint-disable-line no-param-reassign
-      });
-      return map;
-    }, {});
+    this.depsGroupsMap = this.depsGroups.reduce(
+      (map: { [key: string]: string }, arr: string[], index) => {
+        arr.forEach((element) => {
+          map[element] = index.toString(); // eslint-disable-line no-param-reassign
+        });
+        return map;
+      },
+      {}
+    );
   }
 
   addDependency(dependency: string, version: string, filename: string): void {
@@ -47,7 +54,7 @@ export class RelatedPackagesValidator implements Validator {
           );
           isValid = false;
         }
-        console.log(this.depsGroups[group], this.depFileGroupMap[group]);
+        console.log(this.depsGroups[+group], this.depFileGroupMap[group]);
       }
     });
     return isValid;

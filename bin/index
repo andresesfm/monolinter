@@ -8,7 +8,13 @@ explorer.search().then((result)=>{
     if(result.isEmpty){
         throw new Error("Empty config file")
     }
-    lint.default(result.config.include).then((exitcode)=>{   
+    var files = result.config.include;
+    if(!files){
+        console.log("no paths to package.json files, defaulting to use the root package.json only")
+        files = ['package.json']
+    }
+    
+    lint.default(files).then((exitcode)=>{   
         process.exit(exitcode)
     });
 }).catch((error)=>{

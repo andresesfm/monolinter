@@ -4,7 +4,7 @@ import { Validator } from "./Validator";
  * Checks that every package is declared once.
  */
 export class DuplicatePackageValidator implements Validator {
-  private depFileMap = {};
+  private depFileMap: { [key: string]: { [key: string]: number } } = {};
 
   constructor() {
     console.log("Validating Duplicate Packages in same file");

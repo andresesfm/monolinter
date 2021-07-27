@@ -4,7 +4,9 @@ import { Validator } from "./Validator";
  * Checks that all versions are exact, meaning no ~ or ^
  */
 export class ExactPackageVersionValidator implements Validator {
-  private depFileMap = {};
+  private depFileMap: {
+    [key: string]: { dependency: string; version: string; filename: string };
+  } = {};
 
   constructor() {
     console.log("Validating  Packages");
