@@ -1,6 +1,6 @@
 import { ConsistentPackageVersionValidator } from "../ConsistentPackageVersionValidator";
 
-var validator: ConsistentPackageVersionValidator;
+let validator: ConsistentPackageVersionValidator;
 beforeEach(()=>{
     validator = new ConsistentPackageVersionValidator();
 })

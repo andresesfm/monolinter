@@ -1,6 +1,6 @@
 import { ExactPackageVersionValidator } from "../ExactPackageVersionValidator";
 
-var validator: ExactPackageVersionValidator;
+let validator: ExactPackageVersionValidator;
 beforeEach(()=>{
     validator = new ExactPackageVersionValidator();
 })

@@ -1,6 +1,6 @@
 import { RelatedPackagesValidator } from "../RelatedPackagesValidator";
 
-var validator: RelatedPackagesValidator;
+let validator: RelatedPackagesValidator;
 beforeEach(()=>{
     validator = new RelatedPackagesValidator();
 })

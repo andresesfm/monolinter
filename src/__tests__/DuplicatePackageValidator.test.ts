@@ -1,6 +1,6 @@
 import { DuplicatePackageValidator } from "../DuplicatePackageValidator";
 
-var validator: DuplicatePackageValidator;
+let validator: DuplicatePackageValidator;
 beforeEach(()=>{
     validator = new DuplicatePackageValidator();
 })
