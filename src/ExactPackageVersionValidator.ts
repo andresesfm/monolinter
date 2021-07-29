@@ -13,7 +13,7 @@ export class ExactPackageVersionValidator implements Validator {
   }
 
   addDependency(dependency: string, version: string, filename: string): void {
-    if (version.startsWith("^") || version.startsWith("^")) {
+    if (version.startsWith("^") || version.startsWith("~")) {
       this.depFileMap[dependency] = { dependency, version, filename };
     }
   }
