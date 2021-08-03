@@ -1,6 +1,6 @@
 {
   "name": "monolinter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Collection of utilities to lint files accross mono repos",
   "main": "dist/index.js",
   "bin": {
