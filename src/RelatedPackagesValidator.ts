@@ -7,6 +7,8 @@ export class RelatedPackagesValidator implements Validator {
   /** List of related dependencies that should share the same version number */
   private depsGroups: string[][] = [
     ["babel-plugin-react-native-web", "react-native-web"],
+    ["babel-jest","jest"],
+    ["@babel/core","@babel/runtime"]
   ];
 
   private depsGroupsMap: { [key: string]: string } = {};
