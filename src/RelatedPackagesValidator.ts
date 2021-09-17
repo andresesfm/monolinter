@@ -8,7 +8,6 @@ export class RelatedPackagesValidator implements Validator {
   private depsGroups: string[][] = [
     ["babel-plugin-react-native-web", "react-native-web"],
     ["babel-jest","jest"],
-    ["@babel/core","@babel/runtime"],
     ["@typescript-eslint/eslint-plugin","@typescript-eslint/parser"]
   ];
 
