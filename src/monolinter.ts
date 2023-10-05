@@ -15,8 +15,9 @@ const validators = [
 /**
  Finds and reports inconsistencies between packages,
  */
-export default async function lint(globs: string[]): Promise<number> {
+export default async function lint(globs: string[], excludePackagesArr: string[]): Promise<number> {
   console.log("Validating package.json filenames in monorepo");
+  const excludePackages = (excludePackagesArr??[]).reduce((acc:{[key: string]: boolean},curr:string)=> (acc[curr]=true,acc),{});;
   const filenames = await globby(globs);
   filenames.forEach((filename: string) => {
     const rawdata = fs.readFileSync(filename);
@@ -27,10 +28,12 @@ export default async function lint(globs: string[]): Promise<number> {
       ...packageJson.devDependencies,
     };
     Object.keys(deps).forEach((dep) => {
+      if(!excludePackages[dep]){
       const version = deps[dep];
       validators.forEach((validator) => {
         validator.addDependency(dep, version, filename);
       });
+    }
     });
   });
 

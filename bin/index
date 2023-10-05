@@ -9,12 +9,16 @@ explorer.search().then((result)=>{
         throw new Error("Empty config file")
     }
     var files = result.config.include;
+    var excludePackages = result.config.excludePackages;
     if(!files){
         console.log("no paths to package.json files, defaulting to use the root package.json only")
         files = ['package.json']
     }
+    if(excludePackages){
+        console.info("excluding packages", excludePackages);
+    }
     
-    lint.default(files).then((exitcode)=>{   
+    lint.default(files, excludePackages).then((exitcode)=>{   
         process.exit(exitcode)
     });
 }).catch((error)=>{
